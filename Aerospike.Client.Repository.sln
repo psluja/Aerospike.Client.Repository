@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerospike.Client.Repository", "Aerospike.Client.Repository\Aerospike.Client.Repository.csproj", "{C06B5E7B-5381-43EA-883C-1ED85264055D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerospike.Client.Repository.Tests", "Aerospike.Client.Repository.Tests\Aerospike.Client.Repository.Tests.csproj", "{396F8E2E-A4A8-4EC7-A525-C91757480FE8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{C06B5E7B-5381-43EA-883C-1ED85264055D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C06B5E7B-5381-43EA-883C-1ED85264055D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C06B5E7B-5381-43EA-883C-1ED85264055D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{396F8E2E-A4A8-4EC7-A525-C91757480FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{396F8E2E-A4A8-4EC7-A525-C91757480FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{396F8E2E-A4A8-4EC7-A525-C91757480FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{396F8E2E-A4A8-4EC7-A525-C91757480FE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
