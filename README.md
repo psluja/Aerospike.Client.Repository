@@ -1,5 +1,5 @@
 # Aerospike.Client.Repository
-This is simple repository pattern implemention on top of Aerospike Client. Aerospike DB uses records and bins inside them. This repository implementation maps properties of your entity to proper bin type and save it as a single record. Property types that can be use are: ```int, string, bool, double, byte, long, IList<string>, IDictionary<string, string>```. Every type that is not listed will be serialized using BinaryFormatter and saved as binary data bin.
+This is simple repository pattern implementation on top of Aerospike Client. Aerospike DB uses records and bins inside them. This repository implementation maps properties of your entity to proper bin type and save it as a single record. Property types that can be use are: ```int, string, bool, double, byte, long, IList<string>, IDictionary<string, string>```. Every type that is not listed will be serialized using BinaryFormatter and saved as binary data bin.
 
 # Entities
 ```C#
