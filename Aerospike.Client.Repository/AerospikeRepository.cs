@@ -36,6 +36,11 @@ namespace Aerospike.Client.Repository
         {
         }
 
+        public AerospikeRepository(AsyncClient aerospikeClient, string ns, ISerializer serializer)
+            : this(aerospikeClient, ns, new AerospikeEntityMapper(serializer), new DefaultIndexNameResolver())
+        {
+        }
+
         public AerospikeRepository(AsyncClient aerospikeClient, string ns, IAeroTypeSupport aeroTypeSupport)
             : this(aerospikeClient, ns, new AerospikeEntityMapper(aeroTypeSupport), new DefaultIndexNameResolver())
         {

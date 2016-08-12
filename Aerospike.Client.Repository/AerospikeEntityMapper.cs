@@ -27,13 +27,16 @@ namespace Aerospike.Client.Repository
         public AerospikeEntityMapper(IAeroTypeSupport aeroTypeSupport) : this(aeroTypeSupport, new BinaryFormatterSerializer())
         {
         }
+        public AerospikeEntityMapper(ISerializer serializer) : this(new AeroTypeSupport(), serializer)
+        {
+        }
 
         public AerospikeEntityMapper(IAeroTypeSupport aeroTypeSupport, ISerializer serializer, IBinaryPresenter binaryPresenter = null)
         {
             _serializer = serializer;
             _binaryPresenter = binaryPresenter;
             _aeroTypeSupport = aeroTypeSupport;
-            
+
         }
 
         private PropertyInfo[] Get<TEntity>() where TEntity : IAeroEntity, new()

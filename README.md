@@ -11,24 +11,39 @@ This is simple repository pattern implementation on top of Aerospike Client. Aer
 ```  
 # Basic usage
 ```C#
-          using (var client = new AsyncClient(null, "localhost", 3000))
-          {
-              AerospikeRepository repository = new AerospikeRepository(client, "test");
-          
-              repository.DropStringIndex<MyCustomEntity>(entity => entity.Name);
-              repository.CreateStringIndex<MyCustomEntity>(entity => entity.Name);
-          
-              MyCustomEntity myCustomEntity = new MyCustomEntity
-              {
-                  Key = "myUniqueKey_1",
-                  Name = "someName"
-              };
-          
-              repository.AddEntity(myCustomEntity).Wait();
-          
-              var entities = repository.GetEntitiesEquals<MyCustomEntity>(i => i.Name, "someName").Take(1).ToList();
-          
-          }
+        [TestMethod]
+        public async Task basic_usage_1()
+        {
+
+            using (var client = new AsyncClient(null, "localhost", 3000))
+            {
+                AerospikeRepository repository = new AerospikeRepository(client, "test");
+
+                repository.DropStringIndex<MyCustomEntity>(entity => entity.Name);
+                repository.CreateStringIndex<MyCustomEntity>(entity => entity.Name);
+
+                MyCustomEntity myCustomEntity = new MyCustomEntity
+                {
+                    Key = "myUniqueKey_1",
+                    Name = "someName"
+                };
+
+                await repository.AddEntity(myCustomEntity);
+
+                var entities = repository.GetEntitiesEquals<MyCustomEntity>(i => i.Name, "someName").Take(1).ToList();
+
+                Assert.IsNotNull(entities);
+                Assert.AreEqual(entities.Count, 1);
+                Assert.AreEqual(entities.Single().Key, "myUniqueKey_1");
+                Assert.AreEqual(entities.Single().Name, "someName");
+
+                await repository.DeleteEntity<MyCustomEntity>("myUniqueKey_1");
+
+                bool entityExist = repository.GetEntitiesEquals<MyCustomEntity>(i => i.Name, "someName").Any();
+
+                Assert.IsFalse(entityExist);
+            }
+        }
 ```
 # Custom type
 To add support of a custom type, just create a class that inherits from ```Aerospike.Client.Repository.AeroTypeSupport``` class and implement two methods:
@@ -71,7 +86,7 @@ To add support of a custom type, just create a class that inherits from ```Aeros
 ``` 
 ... and the just:
 ```C#
-erospikeRepository repository = new AerospikeRepository(client, "test", new AerospikeEntityMapper(new MyCustomTypes()));
+erospikeRepository repository = new AerospikeRepository(client, "test", new MyCustomTypes());
 
 ```
 
@@ -87,5 +102,5 @@ By default repository uses BinnaryFormatter to serialized complex types. But if 
 
 ...and use it like that:
 ```C#
-AerospikeRepository repository = new AerospikeRepository(client, "test", new AerospikeEntityMapper(new MyCustomSerializer()));
+AerospikeRepository repository = new AerospikeRepository(client, "test", new MyCustomSerializer());
 ```
