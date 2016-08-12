@@ -10,16 +10,7 @@ using Aerospike.Client;
 
 namespace Aerospike.Client.Repository
 {
-    public static class AerospikeEntityMapperExtension
-    {
-         public static Bin[] CreateBinsArray<TEntity>(this IAerospikeEntityMapper aerospikeEntityMapper, TEntity entity)
-            where TEntity : IAeroEntity, new()
-        {
-            return aerospikeEntityMapper.CreateBins(entity).ToArray();
-        }
-    }
-
-    public class AerospikeRepository//<TEntity> where TEntity : IAeroEntity, new()
+    public class AerospikeRepository
         : IAerospikeRepository
     {
         private readonly AsyncClient _aerospikeClient;
@@ -30,7 +21,23 @@ namespace Aerospike.Client.Repository
         private readonly string _namespace;
         public CancellationTokenSource CancellationTokenSource { get; private set; }
 
+
         public AerospikeRepository(AsyncClient aerospikeClient, string ns) : this(aerospikeClient, ns, new AerospikeEntityMapper(), new DefaultIndexNameResolver())
+        {
+        }
+
+        public AerospikeRepository(AsyncClient aerospikeClient, string ns, IAeroTypeSupport aeroTypeSupport, ISerializer serializer, IBinaryPresenter binaryPresenter)
+            : this(aerospikeClient, ns, new AerospikeEntityMapper(aeroTypeSupport, serializer, binaryPresenter), new DefaultIndexNameResolver())
+        {
+        }
+
+        public AerospikeRepository(AsyncClient aerospikeClient, string ns, IAeroTypeSupport aeroTypeSupport, ISerializer serializer)
+            : this(aerospikeClient, ns, new AerospikeEntityMapper(aeroTypeSupport, serializer, null), new DefaultIndexNameResolver())
+        {
+        }
+
+        public AerospikeRepository(AsyncClient aerospikeClient, string ns, IAeroTypeSupport aeroTypeSupport)
+            : this(aerospikeClient, ns, new AerospikeEntityMapper(aeroTypeSupport), new DefaultIndexNameResolver())
         {
         }
 

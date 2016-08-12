@@ -11,7 +11,7 @@ namespace Aerospike.Client.Repository
         public string GetIndexName<TEntity>(string propertyName) where TEntity : IAeroEntity, new()
         {
             Type entityType = typeof(TEntity);
-            return string.Format("{0}-{1}_Index", entityType.Name.ToLower(), propertyName.ToLower());
+            return string.Format("idx-{0}-{1}", entityType.Name.ToLower(), propertyName.ToLower());
         }
     }
 }

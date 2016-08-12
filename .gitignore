@@ -1,0 +1,7 @@
+*.suo
+Aerospike.Client.Repository/bin/
+Aerospike.Client.Repository/obj/
+packages/
+*.user
+Aerospike.Client.Repository.Tests/obj/
+Aerospike.Client.Repository.Tests/bin/
