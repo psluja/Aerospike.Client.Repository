@@ -4,3 +4,4 @@ packages/
 *.suo
 Aerospike.Client.Repository.Tests/obj/
 Aerospike.Client.Repository.Tests/bin/
+*.user
