@@ -84,7 +84,7 @@ To add support of a custom type, just create a class that inherits from ```Aeros
         }
     }
 ``` 
-... and the just:
+... and then just:
 ```C#
 erospikeRepository repository = new AerospikeRepository(client, "test", new MyCustomTypes());
 
