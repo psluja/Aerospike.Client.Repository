@@ -5,3 +5,6 @@ packages/
 Aerospike.Client.Repository.Tests/obj/
 Aerospike.Client.Repository.Tests/bin/
 *.user
+*.pdb
+Aerospike.CoreClient.Repository/bin/
+Aerospike.CoreClient.Repository/obj/

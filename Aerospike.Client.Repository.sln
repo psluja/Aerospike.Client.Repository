@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerospike.Client.Repository", "Aerospike.Client.Repository\Aerospike.Client.Repository.csproj", "{C06B5E7B-5381-43EA-883C-1ED85264055D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aerospike.CoreClient.Repository", "Aerospike.CoreClient.Repository\Aerospike.CoreClient.Repository.csproj", "{91FFE9AF-5964-4396-8613-BC153B185067}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{C06B5E7B-5381-43EA-883C-1ED85264055D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C06B5E7B-5381-43EA-883C-1ED85264055D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C06B5E7B-5381-43EA-883C-1ED85264055D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91FFE9AF-5964-4396-8613-BC153B185067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91FFE9AF-5964-4396-8613-BC153B185067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91FFE9AF-5964-4396-8613-BC153B185067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91FFE9AF-5964-4396-8613-BC153B185067}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED9EFE98-397B-43E1-9F22-494DF6F04F42}
 	EndGlobalSection
 EndGlobal
